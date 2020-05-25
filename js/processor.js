@@ -1,19 +1,20 @@
 function processSubmit() {
+    let resultHolder = document.getElementById("resultHolder");
     let resultBox = document.getElementById("result");
     console.log("In processing submit function");
     let gender = document.getElementById("gender").value;
     console.log("Gender: " + gender);
     let date = document.getElementById("date").value;
     console.log("Date: " + date);
-    let textToDisplay0 = "You were born on a ";
-    let textToDisplay1 = " and your Akan name is ";
+    let textToDisplay0 = "You were born on a <b>";
     let day = dayOfTheWeekNumber(date);
     let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
     let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+    resultHolder.style.display = "block";
     if (gender == "male") {
-        resultBox.innerHTML = textToDisplay0 + weekDay(date) + textToDisplay1 + maleNames[day];
+        resultBox.innerHTML = textToDisplay0 + weekDay(date) + "</b> and your Akan male name is <b>" + maleNames[day] + "</b>";
     } else if (gender == "female") {
-        resultBox.innerHTML = textToDisplay0 + weekDay(date) + textToDisplay1 + femaleNames[day];
+        resultBox.innerHTML = textToDisplay0 + weekDay(date) + "</b> and your Akan female name is <b>" + femaleNames[day] + "</b>";
     } else {
         resultBox.innerHTML = "Something went wrong. Please try again";
     }
