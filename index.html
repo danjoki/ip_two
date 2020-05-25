@@ -13,22 +13,40 @@
             <p>Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.</p>
         </div>
         <div class="container">
-            <h2>Akan Name Generator</h2>
-            <p>Please select you date of birth and gender to view your Akan name.</p>
+            <h2>Please select you date of birth and gender to view your Akan name.</h2>
             <p id="result"></p>
-            <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+            <div class="row">
+                <div class="col-sm-6" style="background-color:yellow;">
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                    <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-6" style="background-color:orange;">
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                    <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <select class="form-control" id="gender" name="gender" required>
-                    <option value="" disabled selected>Select Gender</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                </select>
-            </div>
-            <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
             <script src="js/processor.js"></script>
         </div>
     </body>
