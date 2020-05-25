@@ -9,29 +9,25 @@
     <body>
 
         <div class="jumbotron text-center" style="margin-bottom:0">
-            <h1>Akan Name Generator</h1>
-            <p>Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.</p>
+            <h1><strong>AKAN NAME GENERATOR</strong></h1>
+            <hr>
+            <p>Akan names are derived from Ghanian culture. </p>
+            <p>Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.</p>
         </div>
         <div class="container">
-            <h2>Please select you date of birth and gender to view your Akan name.</h2>
-            <p id="result"></p>
             <div class="row">
-                <div class="col-sm-6" style="background-color:yellow;">
-                    <div class="form-group">
-                        <label for="date">Date:</label>
-                        <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">Gender:</label>
-                        <select class="form-control" id="gender" name="gender" required>
-                            <option value="" disabled selected>Select Gender</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                        </select>
-                    </div>
-                    <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
+                <div class="col p-lg-5">
+                    <h4>Please select you date of birth and gender to view your Akan name.</h4>
                 </div>
-                <div class="col-sm-6" style="background-color:orange;">
+            </div>
+            <div id="resultHolder" class="row mb-3" style="display: none">
+                <div class="col card border-success">
+                    <p class="text-center p-3 text-success" id="result"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 p-4 bg-light text-dark">
+                    <h4 class="p-lg-3 text-center">Version One</h4>
                     <div class="form-group">
                         <label for="date">Date:</label>
                         <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
@@ -44,10 +40,42 @@
                             <option value="male">Male</option>
                         </select>
                     </div>
-                    <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
+                    <button type="submit" onclick="processSubmit()" class="btn btn-dark">Submit</button>
+                    <div class="pt-3 small">
+                        <span>This is the recommended version as it is more in terms of code.</span>
+                    </div>
+
+                </div>
+                <div class="col-sm-6 p-4 bg-secondary text-white">
+                    <h4 class="p-lg-3 text-center">Version Two</h4>
+                    <div class="form-group">
+                        <label for="theDay">Day:</label>
+                        <input type="text" class="form-control" id="theDay" placeholder="Enter Date" name="theDay" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month:</label>
+                        <input type="text" class="form-control" id="month" placeholder="Enter Date" name="month" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender-one" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                    <button type="submit" onclick="processSubmit()" class="btn btn-light">Submit</button>
+                    <div class="pt-3 small">
+                        <span>This is the <strong>NOT</strong> recommended version as it is NOT code effective.</span>
+                    </div>
                 </div>
             </div>
             <script src="js/processor.js"></script>
+            <div class="row pt-4">
+                <div class="col small">
+                    <em>&copy; Copyright 2020 Designed by <a href="http://kinyanjui.xyz">DK</a></em>
+                </div>
+            </div>
         </div>
     </body>
 </html>
