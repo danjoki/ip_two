@@ -4,25 +4,26 @@
           <meta charset="utf-8">
           <title></title>
           <link rel="stylesheet" href="css/bootstrap.css">
+         <script src="js/processor.js"></script>
      </head>
      <body>
           <div class="container">
                <h2>Name Generator</h2>
                <p>This form will help you </p>
-               <form action="#" class="was-validated">
+               <form action="#">
                     <div class="form-group">
                         <label for="date">Date:</label>
-                        <input type="text" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+                        <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
                    </div>
                    <div class="form-group">
                         <label for="gender">Gender:</label>
                         <select class="form-control" id="gender" name="gender" required>
-                             <option value="" disabled>Select Gender</option>
+                             <option value="" disabled selected>Select Gender</option>
                              <option value="female">Female</option>
                              <option value="male">Male</option>
                         </select>
                    </div>
-                   <button type="submit" class="btn btn-primary">Submit</button>
+                   <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
               </form>
          </div>
      </body>
