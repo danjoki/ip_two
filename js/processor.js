@@ -1,15 +1,15 @@
-function nameGeneratorAlgorithm(gender, date, day) {
+function nameGeneratorAlgorithm(resultHolder, resultBox, version, gender, date, day) {
     console.log("gender: "+gender+" Date: "+date+" day: "+day);
-    let resultHolder = document.getElementById("resultHolder");
-    let resultBox = document.getElementById("result");
+    // let resultHolder = document.getElementById("resultHolder");
+    // let resultBox = document.getElementById("result");
     let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
     let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
     let textToDisplay0 = "You were born on a <b>";
     resultHolder.style.display = "block";
     if (gender == "male") {
-        resultBox.innerHTML = textToDisplay0 + weekDay(date) + "</b> and your Akan male name is <b>" + maleNames[day] + "</b>";
+        resultBox.innerHTML = "Version <b>" + version + "</b> " + textToDisplay0 + weekDay(date) + "</b> and your Akan male name is <b>" + maleNames[day] + "</b>";
     } else if (gender == "female") {
-        resultBox.innerHTML = textToDisplay0 + weekDay(date) + "</b> and your Akan female name is <b>" + femaleNames[day] + "</b>";
+        resultBox.innerHTML = "Version <b>" + version + "</b> " + textToDisplay0 + weekDay(date) + "</b> and your Akan female name is <b>" + femaleNames[day] + "</b>";
     } else {
         resultBox.innerHTML = "Something went wrong. Please try again";
     }
@@ -28,7 +28,7 @@ function versionOneSubmit() {
     if(dateValidate === true){
         if(genderValidate === true){
             let day = dayOfTheWeekNumber(date);
-            nameGeneratorAlgorithm(gender, date, day);
+            nameGeneratorAlgorithm(resultHolder, resultBox, "one", gender, date, day);
         } else {
             resultHolder.style.display = "block";
             resultBox.innerHTML = "Please select gender.";
@@ -40,8 +40,8 @@ function versionOneSubmit() {
 }
 
 function versionTwoSubmit() {
-    let resultHolder = document.getElementById("resultHolder");
-    let resultBox = document.getElementById("result");
+    let resultHolder = document.getElementById("resultHolder1");
+    let resultBox = document.getElementById("result1");
     console.log("In processing version two submit function");
     let gender = document.getElementById("gender").value;
     console.log("Gender: " + gender);
@@ -62,10 +62,10 @@ function versionTwoSubmit() {
                     let constructDate = year+"-"+month+"-"+theDay;
                     console.log("Date: "+constructDate);
                     let date = dayOfTheWeekNumber(constructDate);
-                    nameGeneratorAlgorithm(gender, constructDate, dayOfTheWeekNumber(constructDate));
+                    nameGeneratorAlgorithm(resultHolder, resultBox, "two", gender, constructDate, dayOfTheWeekNumber(constructDate));
                 } else {
                     resultHolder.style.display = "block";
-                    resultBox.innerHTML = "Please select gender.";
+                    resultBox1.innerHTML = "Please select gender.";
                 }
             } else {
                 resultHolder.style.display = "block";
