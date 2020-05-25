@@ -1,4 +1,5 @@
 function processSubmit() {
+    console.log("In processing function")
     var date = document.getElementById("date").value;
     var gender = document.getElementById("gender").value;
     var resultBox = document.getElementById("result");
