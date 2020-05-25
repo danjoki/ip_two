@@ -1,15 +1,10 @@
-function processSubmit() {
+function nameGeneratorAlgorithm(gender, date, day) {
+    console.log("gender: "+gender+" Date: "+date+" day: "+day);
     let resultHolder = document.getElementById("resultHolder");
     let resultBox = document.getElementById("result");
-    console.log("In processing submit function");
-    let gender = document.getElementById("gender").value;
-    console.log("Gender: " + gender);
-    let date = document.getElementById("date").value;
-    console.log("Date: " + date);
-    let textToDisplay0 = "You were born on a <b>";
-    let day = dayOfTheWeekNumber(date);
     let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
     let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+    let textToDisplay0 = "You were born on a <b>";
     resultHolder.style.display = "block";
     if (gender == "male") {
         resultBox.innerHTML = textToDisplay0 + weekDay(date) + "</b> and your Akan male name is <b>" + maleNames[day] + "</b>";
@@ -19,9 +14,103 @@ function processSubmit() {
         resultBox.innerHTML = "Something went wrong. Please try again";
     }
 }
+
+function versionOneSubmit() {
+    let resultHolder = document.getElementById("resultHolder");
+    let resultBox = document.getElementById("result");
+    console.log("In processing submit function");
+    let gender = document.getElementById("gender").value;
+    console.log("Gender: " + gender);
+    let date = document.getElementById("date").value;
+    console.log("Date: " + date);
+    let genderValidate = validateValue(gender);
+    let dateValidate = validateValue(date);
+    if(dateValidate === true){
+        if(genderValidate === true){
+            let day = dayOfTheWeekNumber(date);
+            nameGeneratorAlgorithm(gender, date, day);
+        } else {
+            resultHolder.style.display = "block";
+            resultBox.innerHTML = "Please select gender.";
+        }
+    } else {
+        resultHolder.style.display = "block";
+        resultBox.innerHTML = "Please select Date.";
+    }
+}
+
+function versionTwoSubmit() {
+    let resultHolder = document.getElementById("resultHolder");
+    let resultBox = document.getElementById("result");
+    console.log("In processing version two submit function");
+    let gender = document.getElementById("gender").value;
+    console.log("Gender: " + gender);
+    let theDay = document.getElementById("theDay").value;
+    console.log("Day: " + theDay);
+    let month = document.getElementById("month").value;
+    console.log("month: " + month);
+    let year = document.getElementById("year").value;
+    console.log("year: " + year);
+    let dayValid = validateDay(theDay);
+    let monthValid = validateMonth(month);
+    let yearValid = validateYear(year);
+    let genderValid = validateValue(gender);
+    if(dayValid === true) {
+        if(monthValid === true){
+            if(yearValid){
+                if(genderValid === true){
+                    let constructDate = year+"-"+month+"-"+theDay;
+                    console.log("Date: "+constructDate);
+                    let date = dayOfTheWeekNumber(constructDate);
+                    nameGeneratorAlgorithm(gender, constructDate, dayOfTheWeekNumber(constructDate));
+                } else {
+                    resultHolder.style.display = "block";
+                    resultBox.innerHTML = "Please select gender.";
+                }
+            } else {
+                resultHolder.style.display = "block";
+                resultBox.innerHTML = "Please enter the correct Year";
+            }
+        } else {
+            resultHolder.style.display = "block";
+            resultBox.innerHTML = "Please enter the correct Month";
+        }
+    } else {
+        resultHolder.style.display = "block";
+        resultBox.innerHTML = "Please enter the correct day";
+    }
+}
+
+function validateValue(value) {
+    if(value == "")
+        return false;
+    return true;
+}
+
+function validateDay(theDay) {
+    if(theDay >= 1 && theDay <=31){
+        return true;
+    }
+}
+
+function validateMonth(month) {
+    if(month >= 1 && month <=12){
+        return true;
+    }
+}
+
+function validateYear(year) {
+    let date = new Date();
+    if(year >= 1900 && year <= date.getFullYear()){
+        return true;
+    }
+}
+
 function dayOfTheWeekNumber(date) {
     let theDay = new Date(date);
+    console.log("Number for date: "+theDay)
     return theDay.getDay();
+
 }
 
 var weekDay = (date) => {

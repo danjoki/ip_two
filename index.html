@@ -40,7 +40,7 @@
                             <option value="male">Male</option>
                         </select>
                     </div>
-                    <button type="submit" onclick="processSubmit()" class="btn btn-dark">Submit</button>
+                    <button type="submit" onclick="versionOneSubmit()" class="btn btn-dark">Submit</button>
                     <div class="pt-3 small">
                         <span>This is the recommended version as it is more in terms of code.</span>
                     </div>
@@ -50,11 +50,15 @@
                     <h4 class="p-lg-3 text-center">Version Two</h4>
                     <div class="form-group">
                         <label for="theDay">Day:</label>
-                        <input type="text" class="form-control" id="theDay" placeholder="Enter Date" name="theDay" required>
+                        <input type="text" class="form-control" id="theDay" onfocusout="validateDay()" placeholder="Enter Day" name="theDay">
                     </div>
                     <div class="form-group">
                         <label for="month">Month:</label>
-                        <input type="text" class="form-control" id="month" placeholder="Enter Date" name="month" required>
+                        <input type="text" class="form-control" id="month" onfocusout="validateMonth()" placeholder="Enter Month" name="month">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year:</label>
+                        <input type="text" class="form-control" id="year" onfocusout="validateYear()" placeholder="Enter Year" name="year">
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender:</label>
@@ -64,7 +68,7 @@
                             <option value="male">Male</option>
                         </select>
                     </div>
-                    <button type="submit" onclick="processSubmit()" class="btn btn-light">Submit</button>
+                    <button type="submit" onclick="versionTwoSubmit()" class="btn btn-light">Submit</button>
                     <div class="pt-3 small">
                         <span>This is the <strong>NOT</strong> recommended version as it is NOT code effective.</span>
                     </div>
