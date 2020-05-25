@@ -4,13 +4,13 @@ function processSubmit() {
     var gender = document.getElementById("gender").value;
     var resultBox = document.getElementById("result");
     var textToDisplay = "My Akan name is ";
-    var dayOfTheWeekNumber = dayOfTheWeekNumber(date);
+    var day = dayOfTheWeekNumber(date);
     var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
     var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
     if(gender == "male"){
-        resultBox.innerHTML = textToDisplay + maleNames[dayOfTheWeekNumber];
+        resultBox.innerHTML = textToDisplay + maleNames[day];
     } else if(gender == "female"){
-        resultBox.innerHTML = textToDisplay + femaleNames[dayOfTheWeekNumber];
+        resultBox.innerHTML = textToDisplay + femaleNames[day];
     } else {
         resultBox.innerHTML = "Something went wrong. Please try again";
     }
