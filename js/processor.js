@@ -1,21 +1,25 @@
 function processSubmit() {
+    var resultBox = document.getElementById("result");
     console.log("In processing function");
+    resultBox.innerHTML = "In processing function";
     var gender = document.getElementById("gender").value;
     console.log("Gender: "+gender);
-    var date = document.getElementById("date").value;
-    console.log("Date: "+date);
-    var resultBox = document.getElementById("result");
-    var textToDisplay = "My Akan name is ";
-    var day = dayOfTheWeekNumber(date);
-    var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
-    var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
-    if(gender == "male"){
-        resultBox.innerHTML = textToDisplay + maleNames[day];
-    } else if(gender == "female"){
-        resultBox.innerHTML = textToDisplay + femaleNames[day];
-    } else {
-        resultBox.innerHTML = "Something went wrong. Please try again";
-    }
+    resultBox.innerHTML = "Gender: "+gender;
+    // var date = document.getElementById("date").value;
+    // console.log("Date: "+date);
+    // resultBox.innerHTML = "Date: "+date;
+    // var resultBox = document.getElementById("result");
+    // var textToDisplay = "My Akan name is ";
+    // var day = dayOfTheWeekNumber(date);
+    // var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+    // var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+    // if(gender == "male"){
+    //     resultBox.innerHTML = textToDisplay + maleNames[day];
+    // } else if(gender == "female"){
+    //     resultBox.innerHTML = textToDisplay + femaleNames[day];
+    // } else {
+    //     resultBox.innerHTML = "Something went wrong. Please try again";
+    // }
 }
 
 
