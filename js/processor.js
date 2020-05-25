@@ -1,7 +1,9 @@
 function processSubmit() {
     console.log("In processing function");
     var date = document.getElementById("date").value;
+    console.log("Date: "+date);
     var gender = document.getElementById("gender").value;
+    console.log("Gender: "+gender);
     var resultBox = document.getElementById("result");
     var textToDisplay = "My Akan name is ";
     var day = dayOfTheWeekNumber(date);
