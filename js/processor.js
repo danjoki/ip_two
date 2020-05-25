@@ -1,8 +1,18 @@
 function processSubmit() {
-  var date = document.getElementById("date");
-  var gender = document.getElementById("gender");
-  var dayOfTheWeek = dayOfTheWeek(date);
-
+    var date = document.getElementById("date").value;
+    var gender = document.getElementById("gender").value;
+    var resultBox = document.getElementById("result");
+    var textToDisplay = "My Akan name is ";
+    var dayOfTheWeekNumber = dayOfTheWeekNumber(date);
+    var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+    var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+    if(gender == "male"){
+        resultBox.innerHTML = textToDisplay + maleNames[dayOfTheWeekNumber];
+    } else if(gender == "female"){
+        resultBox.innerHTML = textToDisplay + femaleNames[dayOfTheWeekNumber];
+    } else {
+        resultBox.innerHTML = "Something went wrong. Please try again";
+    }
 }
 
 
@@ -24,5 +34,9 @@ function dayOfTheWeek(date) {
     else if(weekDayNumber === 6)
         day = "Saturday";
     return day;
+}
+
+function dayOfTheWeekNumber(date) {
+    return date.getDay();
 }
 
