@@ -1,31 +1,32 @@
 function processSubmit() {
-    var resultBox = document.getElementById("result");
-    console.log("In processing function");
-    resultBox.innerHTML = "In processing function";
-    var gender = document.getElementById("gender").value;
-    console.log("Gender: "+gender);
-    resultBox.innerHTML = "Gender: "+gender;
-    // var date = document.getElementById("date").value;
-    // console.log("Date: "+date);
-    // resultBox.innerHTML = "Date: "+date;
-    // var resultBox = document.getElementById("result");
-    // var textToDisplay = "My Akan name is ";
-    // var day = dayOfTheWeekNumber(date);
-    // var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
-    // var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
-    // if(gender == "male"){
-    //     resultBox.innerHTML = textToDisplay + maleNames[day];
-    // } else if(gender == "female"){
-    //     resultBox.innerHTML = textToDisplay + femaleNames[day];
-    // } else {
-    //     resultBox.innerHTML = "Something went wrong. Please try again";
-    // }
+    let resultBox = document.getElementById("result");
+    console.log("In processing submit function");
+    let gender = document.getElementById("gender").value;
+    console.log("Gender: " + gender);
+    let date = document.getElementById("date").value;
+    console.log("Date: " + date);
+    let textToDisplay0 = "You were born on a ";
+    let textToDisplay1 = " and your Akan name is ";
+    let day = dayOfTheWeekNumber(date);
+    let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+    let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+    if (gender == "male") {
+        resultBox.innerHTML = textToDisplay0 + weekDay(date) + textToDisplay1 + maleNames[day];
+    } else if (gender == "female") {
+        resultBox.innerHTML = textToDisplay0 + weekDay(date) + textToDisplay1 + femaleNames[day];
+    } else {
+        resultBox.innerHTML = "Something went wrong. Please try again";
+    }
+}
+function dayOfTheWeekNumber(date) {
+    let theDay = new Date(date);
+    return theDay.getDay();
 }
 
-
-function dayOfTheWeek(date) {
-    var weekDayNumber = date.getDay();
-    var day = null;
+var weekDay = (date) => {
+    let theDay = new Date(date);
+    let weekDayNumber = theDay.getDay();
+    let day = null;
     if(weekDayNumber === 0)
         day = "Sunday";
     else if(weekDayNumber === 1)
@@ -42,8 +43,3 @@ function dayOfTheWeek(date) {
         day = "Saturday";
     return day;
 }
-
-function dayOfTheWeekNumber(date) {
-    return date.getDay();
-}
-
