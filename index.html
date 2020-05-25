@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-</head>
-<body>
-<div class="container">
-    <h2>Name Generator</h2>
-    <p>This form will help you </p>
-    <p id="result">Please select you date of birth and gender to view your Akan name.</p>
-    <form action="#">
-        <div class="form-group">
-            <label for="date">Date:</label>
-            <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <select class="form-control" id="gender" name="gender" required>
-                <option value="" disabled selected>Select Gender</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </div>
-        <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-</body>
-</html>
+    <head>
+        <title>Akan Name Generator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
 
-<script src="js/processor.js"></script>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Akan Name Generator</h1>
+        <p>Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.</p>
+    </div>
+        <div class="container">
+            <h2>Akan Name Generator</h2>
+            <p>Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born.</p>
+            <p id="result">Please select you date of birth and gender to view your Akan name.</p>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+            <button type="submit" onclick="processSubmit()" class="btn btn-primary">Submit</button>
+            <script src="js/processor.js"></script>
+        </div>
+    </body>
+</html>
