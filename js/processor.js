@@ -7,9 +7,9 @@ function nameGeneratorAlgorithm(resultHolder, resultBox, version, gender, date, 
     let textToDisplay0 = "You were born on a <b>";
     resultHolder.style.display = "block";
     if (gender == "male") {
-        resultBox.innerHTML = "Version <b>" + version + "</b> " + textToDisplay0 + weekDay(date) + "</b> and your Akan male name is <b>" + maleNames[day] + "</b>";
+        resultBox.innerHTML = "Version <b>" + version + "</b>: " + textToDisplay0 + weekDay(date) + "</b> and your Akan male name is <b>" + maleNames[day] + "</b>";
     } else if (gender == "female") {
-        resultBox.innerHTML = "Version <b>" + version + "</b> " + textToDisplay0 + weekDay(date) + "</b> and your Akan female name is <b>" + femaleNames[day] + "</b>";
+        resultBox.innerHTML = "Version <b>" + version + "</b>: " + textToDisplay0 + weekDay(date) + "</b> and your Akan female name is <b>" + femaleNames[day] + "</b>";
     } else {
         resultBox.innerHTML = "Something went wrong. Please try again";
     }
@@ -61,8 +61,8 @@ function versionTwoSubmit() {
                 if(genderValid === true){
                     let constructDate = year+"-"+month+"-"+theDay;
                     console.log("Date: "+constructDate);
-                    let date = dayOfTheWeekNumber(constructDate);
-                    nameGeneratorAlgorithm(resultHolder, resultBox, "two", gender, constructDate, dayOfTheWeekNumber(constructDate));
+                    let dayNumber = dayOfTheWeekNumber(constructDate);
+                    nameGeneratorAlgorithm(resultHolder, resultBox, "two", gender, constructDate, dayNumber);
                 } else {
                     resultHolder.style.display = "block";
                     resultBox1.innerHTML = "Please select gender.";
@@ -91,12 +91,14 @@ function validateDay(theDay) {
     if(theDay >= 1 && theDay <=31){
         return true;
     }
+    return false;
 }
 
 function validateMonth(month) {
     if(month >= 1 && month <=12){
         return true;
     }
+    return false;
 }
 
 function validateYear(year) {
@@ -104,13 +106,13 @@ function validateYear(year) {
     if(year >= 1900 && year <= date.getFullYear()){
         return true;
     }
+    return false;
 }
 
-function dayOfTheWeekNumber(date) {
+var dayOfTheWeekNumber = (date) => {
     let theDay = new Date(date);
     console.log("Number for date: "+theDay)
     return theDay.getDay();
-
 }
 
 var weekDay = (date) => {
