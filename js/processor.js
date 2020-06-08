@@ -43,52 +43,93 @@ function versionTwoSubmit() {
     let resultHolder = document.getElementById("resultHolder1");
     let resultBox = document.getElementById("result1");
     console.log("In processing version two submit function");
-    let gender = document.getElementById("gender").value;
-    console.log("Gender: " + gender);
     let theDay = document.getElementById("theDay").value;
     console.log("Day: " + theDay);
     let month = document.getElementById("month").value;
     console.log("month: " + month);
     let year = document.getElementById("year").value;
     console.log("year: " + year);
+    let gender = document.getElementById("gender-two").value;
+    console.log("Gender: " + gender);
     let dayValid = validateDay(theDay);
     let monthValid = validateMonth(month);
     let yearValid = validateYear(year);
     let genderValid = validateValue(gender);
     if(dayValid === true) {
         if(monthValid === true){
-            if(yearValid){
-                if(genderValid === true){
-                    let constructDate = year+"-"+month+"-"+theDay;
-                    console.log("Date: "+constructDate);
+            if(yearValid) {
+                if (genderValid === true) {
+                    let constructDate = year + "-" + month + "-" + theDay;
+                    console.log("Date: " + constructDate);
                     let dayNumber = dayOfTheWeekNumber(constructDate);
-                    nameGeneratorAlgorithm(resultHolder, resultBox, "two", gender, constructDate, dayNumber);
+                    if (month == 2) {
+                        if (isLeapYear(year) && !validateFebruaryForLeapYear(theDay)) {
+                            resultHolder.style.display = "block";
+                            resultBox.innerHTML = "February for leap year must have 29 days or less.";
+                            document.getElementById("theDay").value = '';
+                        } else if(!isLeapYear(year) && !validateFebruaryForNonLeapYear(theDay)){
+                            resultHolder.style.display = "block";
+                            resultBox.innerHTML = "February for non leap year must have 28 days or less.";
+                            document.getElementById("theDay").value = '';
+                        } else {
+                            nameGeneratorAlgorithm(resultHolder, resultBox, "two", gender, constructDate, dayNumber);
+                        }
+                    } else {
+                        nameGeneratorAlgorithm(resultHolder, resultBox, "two", gender, constructDate, dayNumber);
+                    }
                 } else {
-                    resultHolder.style.display = "block";
-                    resultBox1.innerHTML = "Please select gender.";
+                        resultHolder.style.display = "block";
+                        resultBox.innerHTML = "Please select gender.";
                 }
+
             } else {
                 resultHolder.style.display = "block";
                 resultBox.innerHTML = "Please enter the correct Year";
+                document.getElementById("year").value = '';
             }
         } else {
             resultHolder.style.display = "block";
             resultBox.innerHTML = "Please enter the correct Month";
+            document.getElementById("month").value = '';
         }
     } else {
         resultHolder.style.display = "block";
         resultBox.innerHTML = "Please enter the correct day";
+        document.getElementById("theDay").value = '';
     }
 }
 
+function isLeapYear(year) {
+    console.log("One: "+year%4+" Two: "+year%400+" Three: "+year%100);
+    if(year%4 == 0 || (year%400 == 0 && year%100 != 0))
+        return true;
+    return false;
+}
+
 function validateValue(value) {
-    if(value == "")
+    console.log("Gender Value: "+value)
+    if(value === "") {
         return false;
+    }
     return true;
 }
 
 function validateDay(theDay) {
-    if(theDay >= 1 && theDay <=31){
+        if (theDay >= 1 && theDay <= 31) {
+            return true;
+        }
+    return false;
+}
+
+function validateFebruaryForLeapYear(theDay) {
+    if (theDay >= 1 && theDay <= 29) {
+        return true;
+    }
+    return false;
+}
+
+function validateFebruaryForNonLeapYear(theDay) {
+    if (theDay >= 1 && theDay <= 28) {
         return true;
     }
     return false;
@@ -103,6 +144,8 @@ function validateMonth(month) {
 
 function validateYear(year) {
     let date = new Date();
+    console.log("Date: "+date);
+    console.log("Year: "+date.getFullYear())
     if(year >= 1900 && year <= date.getFullYear()){
         return true;
     }
